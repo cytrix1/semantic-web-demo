@@ -35,6 +35,8 @@ show_img = function(r) {
   cell1.appendChild(ima1);
   cell2.appendChild(ima2);
 
+  document.body.appendChild(t);
+
   //document.body.appendChild(ima1);
   //document.body.appendChild(ima2);
 }
