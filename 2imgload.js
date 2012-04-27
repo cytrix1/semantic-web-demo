@@ -41,7 +41,13 @@ show_img = function(r) {
   cell1 = row.insertCell(0);
   cell2 = row.insertCell(1);
   cell1.appendChild(ima1);
-  cell2.appendChild(ima2);
+  cell2.appendChild(ima2); //insert image to table
+
+  row = t.insertRow(1);
+  cell1 = row.insertCell(0);
+  cell2 = row.insertCell(1);
+  cell1.innerHTML = r.getElementsByName('dn1')[1].childNodes[1].childNodes[0].data;
+  cell2.innerHTML = r.getElementsByName('dn2')[1].childNodes[1].childNodes[0].data; 
 
   document.body.appendChild(t);
 
