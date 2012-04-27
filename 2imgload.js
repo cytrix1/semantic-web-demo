@@ -66,26 +66,27 @@ show_img = function(r, i, j) {
   cell2.appendChild(bt4);
   bt1.addEventListener("click", function (ev) {
       ev.preventDefault();
+      document.removeChild(t);
       show_img(r, --i, j);
   });
   bt2.addEventListener("click", function (ev) {
       ev.preventDefault();
+      document.removeChild(t); 
       show_img(r, ++i, j);
   });
   bt3.addEventListener("click", function (ev) {
       ev.preventDefault();
+      document.removeChild(t);
       show_img(r, i, --j);
   });
   bt4.addEventListener("click", function (ev) {
       ev.preventDefault();
+      document.removeChild(t);
       show_img(r, i, ++j);
   });
   
 
 
   document.body.appendChild(t);
-
-  //document.body.appendChild(ima1);
-  //document.body.appendChild(ima2);
 }
 
