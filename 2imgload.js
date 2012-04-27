@@ -28,7 +28,14 @@ show_img = function(r) {
   ima2.setAttribute("src", r.getElementsByName('url')[2].childNodes[1].childNodes[0].data);
   ima1.setAttribute('width', 550);
   ima2.setAttribute('width', 550);
-  document.body.appendChild(ima1);
-  document.body.appendChild(ima2);
+  var t = document.createElement('table');
+  var row = t.insertRow(0);
+  cell1 = row.insertCell(0);
+  cell2 = row.insertCell(1);
+  cell1.appendChild(ima1);
+  cell2.appendChild(ima2);
+
+  //document.body.appendChild(ima1);
+  //document.body.appendChild(ima2);
 }
 
