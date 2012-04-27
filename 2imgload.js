@@ -2,11 +2,19 @@ var req = new XMLHttpRequest();
 var compare_img = function(d1, d2) {
   var q;
   q = '/repositories/Pathology_demo?query=' + escape([
-	'SELECT ?dn ?url WHERE {',
-	'  ?d path:microURL ?url .',
-	'  ?d rdfs:label ?dn .',
-      '  filter (?dn = "' + d1 + '" || ?dn = "' + d2 + '")',
-	'}'
+      'SELECT ?dn1 ?url1 ?dn2 ?url2 WHERE {', 
+        '{',  
+	   '?d1 path:imageURL ?url1 . ',
+	   '?d1 rdfs:label ?dn1 . ',
+        'filter (?dn1 = "' + d1 + '")',
+	'}',
+        'UNION',
+        '{',  
+	  '?d2 path:imageURL ?url2 .',
+	  '?d2 rdfs:label ?dn2 .',
+          'filter (?dn2 = "' + d2 + '")',
+	'}',
+    '}'
   ].join(' '));
   req.onreadystatechange = function () {
 	if (req.readyState === 4) {
@@ -24,8 +32,8 @@ var compare_img = function(d1, d2) {
 show_img = function(r) {
   var ima1 = document.createElement('img');
   var ima2 = document.createElement('img');
-  ima1.setAttribute("src", r.getElementsByName('url')[1].childNodes[1].childNodes[0].data);
-  ima2.setAttribute("src", r.getElementsByName('url')[2].childNodes[1].childNodes[0].data);
+  ima1.setAttribute("src", r.getElementsByName('url1')[1].childNodes[1].childNodes[0].data);
+  ima2.setAttribute("src", r.getElementsByName('url2')[1].childNodes[1].childNodes[0].data);
   ima1.setAttribute('width', 550);
   ima2.setAttribute('width', 550);
   var t = document.createElement('table');
