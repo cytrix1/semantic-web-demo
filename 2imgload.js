@@ -66,13 +66,15 @@ show_img = function(r, i, j) {
   else {
       alert("abnormal value of i");    }
   if (j == 1) {
-      ind.push(4);   } 
+      ind.push(4);   
+      alert("push 4");  } 
   else if (j > 1 && j < r.getElementsByName('url2').length) {
       ind.push(3); ind.push(4);    }
   else if (j == r.getElementsByName('url2').length ) {
       ind.push(3);  }
   else {
       alert("abnormal value of j");    }
+  alert(index);
   for (each in ind)  {
       bt[each] = document.createElement('button');
       bt[each].innerHtml = (each % 2) ? "&lt;&lt;" : "&gt;&gt;";
