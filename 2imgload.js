@@ -82,13 +82,13 @@ show_img = function(r, i, j) {
       else if (inn == 3 || inn ==4)  {
           cell2.appendChild(bt[inn]);  }
       if (inn == 1) {
-          ii = --i; jj = j;}
+          ii = i - 1 ; jj = j;}
       else if (inn == 2) {
-          ii = ++i; jj = j }
+          ii = i + 1 ; jj = j }
       else if (inn == 3) {
-          ii = i; jj = --j;  }
+          ii = i; jj = j - 1;  }
       else if (inn == 4) {
-          ii = i; jj = ++j; }
+          ii = i; jj = j + 1; }
       else {
           alert("Abnormal value of inn");  }  
       bt[inn].addEventListener("click", function (ev) {
