@@ -76,20 +76,21 @@ show_img = function(r, i, j) {
       alert("abnormal value of j");    }
   alert(ind[0]);
   for (each in ind)  {
-      bt[each] = document.createElement('button');
-      bt[each].innerHtml = (each % 2) ? "&lt;&lt;" : "&gt;&gt;";
-      if (each == 1 || each == 2)  {
-          cell1.appendChild(bt[each]);  }
-      else if (each == 3 || each ==4)  {
-          cell2.appendChild(bt[each]);  }
-      i = (each == 1) ? --i : ((each == 2) ? ++i : i);
-      j = (each == 3) ? --j : ((each == 4) ? ++j : j);
-      bt[each].addEventListener("click", function (ev) {
+      var inn = ind[each];
+      bt[inn] = document.createElement('button');
+      bt[inn].innerHtml = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
+      if (inn == 1 || inn == 2)  {
+          cell1.appendChild(bt[inn]);  }
+      else if (inn == 3 || inn ==4)  {
+          cell2.appendChild(bt[inn]);  }
+      i = (inn == 1) ? --i : ((inn == 2) ? ++i : i);
+      j = (inn == 3) ? --j : ((inn == 4) ? ++j : j);
+      bt[inn].addEventListener("click", function (ev) {
           ev.preventDefault();
           document.body.removeChild(t);
           show_img(r, i, j);
       });
-     string = "i=" + i + ";j=" + j + ";each=" + each;
+     string = "i=" + i + ";j=" + j + ";inn=" + inn;
      alert(string);
   }
 
