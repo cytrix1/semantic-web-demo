@@ -72,8 +72,7 @@ show_img = function(r, i, j) {
       alert("abnormal value of j");    }
   for (each in ind)  {
       var inn = ind[each];
-     string = "i=" + i + ";j=" + j + ";inn=" + inn;
-     alert(string);
+
       bt[inn] = document.createElement('button');
       bt[inn].id = inn;
       bt[inn].innerHTML = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
@@ -84,7 +83,7 @@ show_img = function(r, i, j) {
       if (inn == 1) {
           ii = i - 1 ; jj = j;}
       else if (inn == 2) {
-          ii = i + 1 ; jj = j }
+          ii = i + 1 ; jj = j; }
       else if (inn == 3) {
           ii = i; jj = j - 1;  }
       else if (inn == 4) {
@@ -95,6 +94,8 @@ show_img = function(r, i, j) {
           ev.preventDefault();
           document.body.removeChild(t);
           show_img(r, ii, jj);
+          string = "i=" + i + ";j=" + j + "ii=" + ii + ";jj=" + jj + ";inn=" + inn;
+          alert(string);
       });
 
   }
