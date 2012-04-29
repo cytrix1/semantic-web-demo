@@ -55,30 +55,28 @@ show_img = function(r, i, j) {
   var bt = new Array();
   var ind = new Array();
   if (i == 1) {
-      ind.push(2);   
-      alert("push 2"); } 
+      ind.push(2);   } 
   else if (i > 1 && i < r.getElementsByName('url1').length) {
-      ind.push(1); ind.push(2);    
-      alert("push 1,2"); }
+      ind.push(1); ind.push(2);   }
   else if (i == r.getElementsByName('url1').length ) {
-      ind.push(1);  
-      alert("push 1");  }
+      ind.push(1);   }
   else {
       alert("abnormal value of i");    }
   if (j == 1) {
-      ind.push(4);   
-      alert("push 4");  } 
+      ind.push(4);   } 
   else if (j > 1 && j < r.getElementsByName('url2').length) {
       ind.push(3); ind.push(4);    }
   else if (j == r.getElementsByName('url2').length ) {
       ind.push(3);  }
   else {
       alert("abnormal value of j");    }
-  alert(ind[0]);
   for (each in ind)  {
       var inn = ind[each];
+     string = "i=" + i + ";j=" + j + ";inn=" + inn;
+     alert(string);
       bt[inn] = document.createElement('button');
-      bt[inn].innerHtml = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
+      bt[inn].innerHTML = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
+      alert(bt[inn].innerHTML);
       if (inn == 1 || inn == 2)  {
           cell1.appendChild(bt[inn]);  }
       else if (inn == 3 || inn ==4)  {
@@ -90,8 +88,7 @@ show_img = function(r, i, j) {
           document.body.removeChild(t);
           show_img(r, i, j);
       });
-     string = "i=" + i + ";j=" + j + ";inn=" + inn;
-     alert(string);
+
   }
 
   //bt1 = document.createElement('button');
