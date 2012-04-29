@@ -55,11 +55,14 @@ show_img = function(r, i, j) {
   var bt = new Array();
   var ind = new Array();
   if (i == 1) {
-      ind.push(2);   } 
+      ind.push(2);   
+      alert("push 2"); } 
   else if (i > 1 && i < r.getElementsByName('url1').length) {
-      ind.push(1); ind.push(2);    }
+      ind.push(1); ind.push(2);    
+      alert("push 1,2"); }
   else if (i == r.getElementsByName('url1').length ) {
-      ind.push(1);  }
+      ind.push(1);  
+      alert("push 1");  }
   else {
       alert("abnormal value of i");    }
   if (j == 1) {
@@ -84,7 +87,8 @@ show_img = function(r, i, j) {
           document.body.removeChild(t);
           show_img(r, i, j);
       });
-     alert(each);
+     string = "i=" + i + ";j=" + j + ";each=" + each;
+     alert(string);
   }
 
   //bt1 = document.createElement('button');
