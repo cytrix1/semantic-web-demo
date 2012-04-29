@@ -72,6 +72,7 @@ show_img = function(r, i, j) {
       ind.push(3);  }
   else {
       alert("abnormal value of j");    }
+  alert(ind);
   for (each in ind)  {
       var inn = ind[each];
       bt[inn] = document.createElement('button');
@@ -96,46 +97,9 @@ show_img = function(r, i, j) {
           ev.preventDefault();
           document.body.removeChild(t);
           show_img(r, i, j);
-          string = "When event occurs, i=" + i + ";j=" + j + ";;evsrc=" + evsrc;
-          alert(string);
       });
 
   }
-
-  //bt1 = document.createElement('button');
-  //bt2 = document.createElement('button');
-  //bt3 = document.createElement('button');
-  //bt4 = document.createElement('button');
-  //bt1.innerHTML = "&lt;&lt;";
-  //bt2.innerHTML = "&gt;&gt;";
-  //bt3.innerHTML = "&lt;&lt;";
-  //bt4.innerHTML = "&gt;&gt;";
-  //cell1.appendChild(bt1);
-  //cell1.appendChild(bt2);
-  //cell2.appendChild(bt3);
-  //cell2.appendChild(bt4);
-  //bt1.addEventListener("click", function (ev) {
-  //    ev.preventDefault();
-  //    document.body.removeChild(t);
-  //    show_img(r, --i, j);
-  //});
-  //bt2.addEventListener("click", function (ev) {
-  //    ev.preventDefault();
-  //    document.body.removeChild(t); 
-  //    show_img(r, ++i, j);
-  //});
-  //bt3.addEventListener("click", function (ev) {
-  //    ev.preventDefault();
-  //    document.body.removeChild(t);
-  //    show_img(r, i, --j);
-  //});
-  //bt4.addEventListener("click", function (ev) {
-  //    ev.preventDefault();
-  //    document.body.removeChild(t);
-  //    show_img(r, i, ++j);
-  //});
-  
-
 
   document.body.appendChild(t);
 }
