@@ -64,7 +64,8 @@ show_img = function(r, i, j) {
   var bt = new Array();
   var ind = new Array();
   if (i == 1) {
-      ind.push(2);   } 
+      if (r.getElementsByName('url1').length > 2) {
+          ind.push(2);   } }
   else if (i > 1 && i < r.getElementsByName('url1').length - 1) {
       ind.push(1); ind.push(2);   }
   else if (i == r.getElementsByName('url1').length - 1) {
@@ -72,7 +73,8 @@ show_img = function(r, i, j) {
   else {
       alert("abnormal value of i");    }
   if (j == 1) {
-      ind.push(4);   } 
+      if (r.getElementsByName('url2').length > 2) {      
+          ind.push(4);   }  }
   else if (j > 1 && j < r.getElementsByName('url2').length - 1) {
       ind.push(3); ind.push(4);    }
   else if (j == r.getElementsByName('url2').length - 1) {
@@ -100,7 +102,10 @@ show_img = function(r, i, j) {
               ++j; }
           ev.preventDefault();
           document.body.removeChild(t);
-          show_img(r, i, j);
+          try { 
+              show_img(r, i, j); }
+          catch(err) {
+              alert("Check url of the image: " + err.mesaage); }          
       });
   }
 
