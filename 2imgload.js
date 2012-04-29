@@ -36,6 +36,8 @@ show_img = function(r, i, j) {
   ima2.setAttribute("src", r.getElementsByName('url2')[j].childNodes[1].childNodes[0].data);
   ima1.setAttribute('width', 550);
   ima2.setAttribute('width', 550);
+  ima1.id = "img_url1_" + i;
+  ima2.id = "img_url2_" + j; 
   var t = document.createElement('table');
   var row = t.insertRow(0);
   cell1 = row.insertCell(0);
@@ -72,7 +74,6 @@ show_img = function(r, i, j) {
       alert("abnormal value of j");    }
   for (each in ind)  {
       var inn = ind[each];
-
       bt[inn] = document.createElement('button');
       bt[inn].id = inn;
       bt[inn].innerHTML = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
@@ -89,12 +90,16 @@ show_img = function(r, i, j) {
       else if (inn == 4) {
           ii = i; jj = j + 1; }
       else {
-          alert("Abnormal value of inn");  }  
+          alert("Abnormal value of inn");  } 
+
+      string = "In the loop: i=" + i + ";j=" + j + "ii=" + ii + ";jj=" + jj + ";inn=" + inn;
+      alert(string);
+ 
       bt[inn].addEventListener("click", function (ev) {
           ev.preventDefault();
           document.body.removeChild(t);
           show_img(r, ii, jj);
-          string = "i=" + i + ";j=" + j + "ii=" + ii + ";jj=" + jj + ";inn=" + inn;
+          string = "When event occurs, i=" + i + ";j=" + j + "ii=" + ii + ";jj=" + jj + ";inn=" + inn;
           alert(string);
       });
 
