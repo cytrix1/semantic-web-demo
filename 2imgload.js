@@ -81,21 +81,20 @@ show_img = function(r, i, j) {
           cell1.appendChild(bt[inn]);  }
       else if (inn == 3 || inn ==4)  {
           cell2.appendChild(bt[inn]);  }
-
+      if (inn == 1) {
+          ii = --i; jj = j;}
+      else if (inn == 2) {
+          ii = ++i; jj = j }
+      else if (inn == 3) {
+          ii = i; jj = --j;  }
+      else if (inn == 4) {
+          ii = i; jj = ++j; }
+      else {
+          alert("Abnormal value of inn");  }  
       bt[inn].addEventListener("click", function (ev) {
           ev.preventDefault();
           document.body.removeChild(t);
-          if (inn == 1) {
-              --i; }
-          else if (inn == 2) {
-              ++i;  }
-          else if (inn == 3) {
-              --j;  }
-          else if (inn == 4) {
-              ++j; }
-          else {
-              alert("Abnormal value of inn");  }  
-          show_img(r, i, j);
+          show_img(r, ii, jj);
       });
 
   }
