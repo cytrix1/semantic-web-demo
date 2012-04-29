@@ -81,25 +81,22 @@ show_img = function(r, i, j) {
           cell1.appendChild(bt[inn]);  }
       else if (inn == 3 || inn ==4)  {
           cell2.appendChild(bt[inn]);  }
-      if (inn == 1) {
-          ii = i - 1 ; jj = j;}
-      else if (inn == 2) {
-          ii = i + 1 ; jj = j; }
-      else if (inn == 3) {
-          ii = i; jj = j - 1;  }
-      else if (inn == 4) {
-          ii = i; jj = j + 1; }
-      else {
-          alert("Abnormal value of inn");  } 
-
-      string = "In the loop: i=" + i + ";j=" + j + "ii=" + ii + ";jj=" + jj + ";inn=" + inn;
-      alert(string);
  
       bt[inn].addEventListener("click", function (ev) {
+          var evsrc = ev.target.id ;
+          if (evsrc == 1) {
+              --i;}
+          else if (evsrc == 2) {
+              ++i; }
+          else if (evsrc == 3) {
+              --j;  }
+          else if (evsrc == 4) {
+              ++j; }
+
           ev.preventDefault();
           document.body.removeChild(t);
-          show_img(r, ii, jj);
-          string = "When event occurs, i=" + i + ";j=" + j + "ii=" + ii + ";jj=" + jj + ";inn=" + inn;
+          show_img(r, i, j);
+          string = "When event occurs, i=" + i + ";j=" + j + ";;evsrc=" + evsrc;
           alert(string);
       });
 
