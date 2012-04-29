@@ -75,6 +75,7 @@ show_img = function(r, i, j) {
      string = "i=" + i + ";j=" + j + ";inn=" + inn;
      alert(string);
       bt[inn] = document.createElement('button');
+      bt[inn].id = inn;
       bt[inn].innerHTML = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
       if (inn == 1 || inn == 2)  {
           cell1.appendChild(bt[inn]);  }
@@ -84,8 +85,16 @@ show_img = function(r, i, j) {
       bt[inn].addEventListener("click", function (ev) {
           ev.preventDefault();
           document.body.removeChild(t);
-          i = (inn == 1) ? --i : ((inn == 2) ? ++i : i);
-          j = (inn == 3) ? --j : ((inn == 4) ? ++j : j);
+          if (inn == 1) {
+              --i; }
+          else if (inn == 2) {
+              ++i;  }
+          else if (inn == 3) {
+              --j;  }
+          else if (inn == 4) {
+              ++j; }
+          else {
+              alert("Abnormal value of inn");  }  
           show_img(r, i, j);
       });
 
