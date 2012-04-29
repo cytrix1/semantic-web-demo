@@ -76,16 +76,16 @@ show_img = function(r, i, j) {
      alert(string);
       bt[inn] = document.createElement('button');
       bt[inn].innerHTML = (inn % 2) ? "&lt;&lt;" : "&gt;&gt;";
-      alert(bt[inn].innerHTML);
       if (inn == 1 || inn == 2)  {
           cell1.appendChild(bt[inn]);  }
       else if (inn == 3 || inn ==4)  {
           cell2.appendChild(bt[inn]);  }
-      i = (inn == 1) ? --i : ((inn == 2) ? ++i : i);
-      j = (inn == 3) ? --j : ((inn == 4) ? ++j : j);
+
       bt[inn].addEventListener("click", function (ev) {
           ev.preventDefault();
           document.body.removeChild(t);
+          i = (inn == 1) ? --i : ((inn == 2) ? ++i : i);
+          j = (inn == 3) ? --j : ((inn == 4) ? ++j : j);
           show_img(r, i, j);
       });
 
