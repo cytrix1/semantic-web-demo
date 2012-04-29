@@ -19,7 +19,10 @@ var compare_img = function(d1, d2) {
   req.onreadystatechange = function () {
 	if (req.readyState === 4) {
          if (req.status === 200) {
-		 show_img(req.responseXML, 1, 1);
+            try {
+		     show_img(req.responseXML, 1, 1); }
+            catch(err) {
+                alert("Check url of the image: " + err.mesaage); }
 	    }
 	 }
 	return;
@@ -30,6 +33,9 @@ var compare_img = function(d1, d2) {
 }
 
 show_img = function(r, i, j) {
+  if (document.getElementById('imagedisplay')) {
+      document.body.removeChild(document.getElementById('imagedisplay'));
+  }
   var ima1 = document.createElement('img');
   var ima2 = document.createElement('img');
   ima1.setAttribute("src", r.getElementsByName('url1')[i].childNodes[1].childNodes[0].data);
@@ -39,6 +45,7 @@ show_img = function(r, i, j) {
   ima1.id = "img_url1_" + i;
   ima2.id = "img_url2_" + j; 
   var t = document.createElement('table');
+  t.id = "imagedisplay";
   var row = t.insertRow(0);
   cell1 = row.insertCell(0);
   cell2 = row.insertCell(1);
@@ -72,7 +79,6 @@ show_img = function(r, i, j) {
       ind.push(3);  }
   else {
       alert("abnormal value of j");    }
-  alert(ind);
   for (each in ind)  {
       var inn = ind[each];
       bt[inn] = document.createElement('button');
@@ -81,8 +87,7 @@ show_img = function(r, i, j) {
       if (inn == 1 || inn == 2)  {
           cell1.appendChild(bt[inn]);  }
       else if (inn == 3 || inn ==4)  {
-          cell2.appendChild(bt[inn]);  }
- 
+          cell2.appendChild(bt[inn]);  } 
       bt[inn].addEventListener("click", function (ev) {
           var evsrc = ev.target.id ;
           if (evsrc == 1) {
@@ -93,12 +98,10 @@ show_img = function(r, i, j) {
               --j;  }
           else if (evsrc == 4) {
               ++j; }
-
           ev.preventDefault();
           document.body.removeChild(t);
           show_img(r, i, j);
       });
-
   }
 
   document.body.appendChild(t);
