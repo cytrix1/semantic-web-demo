@@ -58,18 +58,17 @@ show_img = function(r, i, j) {
   var ind = new Array();
   if (i == 1) {
       ind.push(2);   } 
-  else if (i > 1 && i < r.getElementsByName('url1').length) {
+  else if (i > 1 && i < r.getElementsByName('url1').length - 1) {
       ind.push(1); ind.push(2);   }
-  else if (i == r.getElementsByName('url1').length ) {
+  else if (i == r.getElementsByName('url1').length - 1) {
       ind.push(1);   }
   else {
       alert("abnormal value of i");    }
-  alert("j = " + j + ";;lengths of url2 = " + r.getElementsByName('url2').length);
   if (j == 1) {
       ind.push(4);   } 
-  else if (j > 1 && j < r.getElementsByName('url2').length) {
+  else if (j > 1 && j < r.getElementsByName('url2').length - 1) {
       ind.push(3); ind.push(4);    }
-  else if (j == r.getElementsByName('url2').length ) {
+  else if (j == r.getElementsByName('url2').length - 1) {
       ind.push(3);  }
   else {
       alert("abnormal value of j");    }
