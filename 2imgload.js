@@ -84,6 +84,7 @@ show_img = function(r, i, j) {
           document.body.removeChild(t);
           show_img(r, i, j);
       });
+     alert(each);
   }
 
   //bt1 = document.createElement('button');
