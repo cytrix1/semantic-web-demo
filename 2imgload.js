@@ -74,7 +74,7 @@ show_img = function(r, i, j) {
       ind.push(3);  }
   else {
       alert("abnormal value of j");    }
-  alert(index);
+  alert(ind[0]);
   for (each in ind)  {
       bt[each] = document.createElement('button');
       bt[each].innerHtml = (each % 2) ? "&lt;&lt;" : "&gt;&gt;";
