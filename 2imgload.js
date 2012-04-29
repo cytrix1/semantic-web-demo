@@ -64,6 +64,7 @@ show_img = function(r, i, j) {
       ind.push(1);   }
   else {
       alert("abnormal value of i");    }
+  alert("j = " + j + ";;lengths of url2 = " + r.getElementsByName('url2').length);
   if (j == 1) {
       ind.push(4);   } 
   else if (j > 1 && j < r.getElementsByName('url2').length) {
