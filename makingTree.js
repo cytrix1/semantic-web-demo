@@ -19,11 +19,11 @@ var setpos = function (N, po) {
 }
 setpos(N0, [400, 20]);	
 
-var canvas = document.createElement("canvas");
+var canvas = document.getElementById("canvas");
 canvas.height = 1500;
 canvas.width = 1000;
 var ctx = canvas.getContext("2d");
-document.body.appendChild(canvas);
+//document.body.appendChild(canvas);
 
 for (var ind in S) {
     ctx.strokeRect(S[ind].pos[0], S[ind].pos[1], 200, 150);
