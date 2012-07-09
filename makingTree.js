@@ -13,19 +13,19 @@ S = [N0, N1, N2, N3, N4, N5, N6];
 var setpos = function (N, po) {
     N.pos = po;
 	if (N.hasOwnProperty("children")) {
-	    setpos(N.children[0], [po[0] -150, po[1] + 300]);
-	    setpos(N.children[1], [po[0] + 150, po[1] + 300]);
+	    setpos(N.children[0], [po[0] - 110, po[1] + 250]);
+	    setpos(N.children[1], [po[0] + 110, po[1] + 250]);
 	} 
 }
 setpos(N0, [400, 20]);	
 
 var canvas = document.createElement("canvas");
-canvas.height = 1000;
+canvas.height = 1500;
 canvas.width = 1000;
 var ctx = canvas.getContext("2d");
 document.body.appendChild(canvas);
 
 for (var ind in S) {
-    ctx.fillRect(S[ind].pos[0], S[ind].pos[1], 100, 150);
+    ctx.strokeRect(S[ind].pos[0], S[ind].pos[1], 200, 150);
 }
 
