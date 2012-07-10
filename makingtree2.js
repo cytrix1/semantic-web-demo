@@ -1,15 +1,18 @@
-N0 = {label:"Node 0", children:[], contents: {L:41, M:59}, classifier: "Mesan-IgG1", pos: []};
-N1 = {label:"Node 1", children:[], classifier: "GCW-IgG2", contents: {L:10, M:55}, pos: []};
-N2 = {label:"Node 2", classifier: "GCW-IgG2", contents: {L:1, M:45}, pos: []};
-N3 = {label:"Node 3", children:[], classifier: "GCW-IgG4", contents: {L:9, M:10}, pos: []};
-N4 = {label:"Node 4", contents: {L:7, M:0}, pos: []};
-N5 = {label:"Node 5", contents: {L:2, M:10}, pos: []};
-N6 = {label:"Node 6", contents: {L:31, M:4}, pos: []};
-N0.children = [N1, N6];
-N1.children = [N2, N3];
+N0 = {label:"Node 0", children:[], contents: {L:41, M:59}, classifier: "Mesan-C1", pos: []};
+N1 = {label:"Node 1", children:[], classifier: "GCW-IgG4", contents: {L:20, M:58}, pos: []};
+N2 = {label:"Node 2", children:[], classifier: "GCW-IgG2", contents: {L:19, M:9}, pos: []};
+N3 = {label:"Node 3", children:[], classifier: "Mesan-IgG1", contents: {L:3, M:9}, pos: []};
+N4 = {label:"Node 4", contents: {L:1, M:9}, pos: []};
+N5 = {label:"Node 5", contents: {L:2, M:0}, pos: []};
+N6 = {label:"Node 6", contents: {L:16, M:0}, pos: []};
+N7 = {label:"Node 7", contents: {L:1, M:49}, pos: []};
+N8 = {label:"Node 8", contents: {L:21, M:1}, pos: []};
+N0.children = [N1, N8];
+N1.children = [N2, N7];
+N2.children = [N3, N6];
 N3.children = [N4, N5];
 
-S = [N0, N1, N2, N3, N4, N5, N6];
+S = [N0, N1, N2, N3, N4, N5, N6, N7, N8];
 var setpos = function (N, po) {
     N.pos = po;
 	if (N.hasOwnProperty("children")) {
@@ -17,7 +20,7 @@ var setpos = function (N, po) {
 	    setpos(N.children[1], [po[0] + 110, po[1] + 275]);
 	} 
 }
-setpos(N0, [400, 5]);	
+setpos(N0, [450, 5]);	
 
 var canvas = document.createElement("canvas");
 canvas.height = 1500;
@@ -41,7 +44,7 @@ for (var ind in S) {
 	ctx.fillText(S[ind].label, S[ind].pos[0] + 100, S[ind].pos[1] + 18);
 	ctx.textAlign = "left";
 	ctx.fillText("Category          n", S[ind].pos[0] + 50 , S[ind].pos[1] + 50);
-	ctx.fillText("LMN", S[ind].pos[0] + 50, S[ind].pos[1] + 78);
+	ctx.fillText("MLN", S[ind].pos[0] + 50, S[ind].pos[1] + 78);
 	ctx.fillText("PMN", S[ind].pos[0] + 50, S[ind].pos[1] + 102);
 	ctx.fillText("Total", S[ind].pos[0] + 50, S[ind].pos[1] + 128);	
 	ctx.textAlign = "right";
@@ -86,7 +89,7 @@ for (var ind in S) {
 	}
 }
 
-var dataURL = canvas.toDataURL();
+var dataURL = canvas.toDataURL("image/png");
 document.getElementById("canvasImg").src = dataURL;
 
 

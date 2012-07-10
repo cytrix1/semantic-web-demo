@@ -1,13 +1,13 @@
-N0 = {label:"Node 0", children:[], contents: {L:41, M:59}, classifier: "Mesan-IgG1", pos: []};
-N1 = {label:"Node 1", children:[], classifier: "GCW-IgG2", contents: {L:10, M:55}, pos: []};
-N2 = {label:"Node 2", classifier: "GCW-IgG2", contents: {L:1, M:45}, pos: []};
-N3 = {label:"Node 3", children:[], classifier: "GCW-IgG4", contents: {L:9, M:10}, pos: []};
-N4 = {label:"Node 4", contents: {L:7, M:0}, pos: []};
-N5 = {label:"Node 5", contents: {L:2, M:10}, pos: []};
-N6 = {label:"Node 6", contents: {L:31, M:4}, pos: []};
+N0 = {label:"Node 0", children:[], contents: {L:41, M:59}, classifier: "Mesan-C1", pos: []};
+N1 = {label:"Node 1", children:[], classifier: "Mesan-C3", contents: {L:20, M:58}, pos: []};
+N2 = {label:"Node 2", children:[], classifier: "GCW-C1", contents: {L:10, M:53}, pos: []};
+N3 = {label:"Node 3", contents: {L:6, M:52}, pos: []};
+N4 = {label:"Node 4", contents: {L:4, M:1}, pos: []};
+N5 = {label:"Node 5", contents: {L:10, M:5}, pos: []};
+N6 = {label:"Node 6", contents: {L:21, M:1}, pos: []};
 N0.children = [N1, N6];
-N1.children = [N2, N3];
-N3.children = [N4, N5];
+N1.children = [N2, N5];
+N2.children = [N3, N4];
 
 S = [N0, N1, N2, N3, N4, N5, N6];
 var setpos = function (N, po) {
